@@ -1,0 +1,16 @@
+<section class="py-12 mx-8 mt-[6em]">
+    <div class="text-center">
+      <h2 class="text-5xl font-bold text-black">New Collection</h2>
+      <p class="text-sm mt-4">Discover our latest arrivals and get ready to upgrade your wardrobe.</p>
+    </div>
+    
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      @for (product of products; track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+      } @empty {
+        Empty list of products
+      }      
+      <!-- Repeat the above product item code for the remaining 5 products -->
+      
+    </div>
+</section>

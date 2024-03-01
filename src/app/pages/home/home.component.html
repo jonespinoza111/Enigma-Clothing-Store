@@ -1,0 +1,27 @@
+<div class="content">
+    <app-hero-image></app-hero-image>
+    <app-collection-section></app-collection-section>
+    <section class="my-[6em]">
+        <div class="relative rounded-2xl mx-8">
+            <!-- Hero Image -->
+            <img src="assets/images/hero-image-2.png" alt="Hero Image" class="w-full object-cover h-[24em] rounded-2xl">
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 rounded-2xl bg-black opacity-30"></div>
+            
+            <!-- Text Container -->
+        </div>
+        <div class="p-4 text-black w-full flex flex-col items-center">
+          <h1 class="text-4xl sm:text-6xl font-bold mb-4">Wear In The Summer</h1>
+            <p class="text-md">Discover our latest collection inspired by the beauty of spring.</p>
+            <a href="#" class="bg-black text-white py-2 px-12 rounded-full mt-5 hover:bg-gray-700">See Details</a>
+        </div>
+    </section>
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-8 mb-[6em]">
+        @for (category of categories; track category.id) {
+            <app-category-card [category]="category"></app-category-card>
+        } @empty {
+            Empty list of categories
+        }
+    </section>
+</div>
