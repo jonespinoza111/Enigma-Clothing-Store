@@ -10,5 +10,5 @@ import { Product } from '../../models/product.model';
 })
 export class ProductCardComponent {
   @Input({ required: true }) product!: Product;
-  
+  @Input() customClass!: string;  
 }

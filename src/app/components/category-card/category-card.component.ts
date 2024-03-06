@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Category } from '../../models/category.model';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-category-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './category-card.component.html',
   styleUrl: './category-card.component.css'
 })
