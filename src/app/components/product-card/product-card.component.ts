@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -11,4 +12,16 @@ import { Product } from '../../models/product.model';
 export class ProductCardComponent {
   @Input({ required: true }) product!: Product;
   @Input() customClass!: string;  
+
+
+  constructor(private cartService: CartService) {
+  }
+
+  addToCart(item: any) {
+    let alreadyInCart = this.cartService.getCartItemById(item.id);
+    if (alreadyInCart) {
+      console.log('already in the cart');
+    }
+    this.cartService.addToCart(item);
+  }
 }

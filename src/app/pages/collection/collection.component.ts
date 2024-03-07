@@ -5,6 +5,7 @@ import { products } from '../../data/products';
 import { ActivatedRoute } from '@angular/router';
 import { collections } from '../../data/collections';
 import { Collection } from '../../models/collection';
+import { CartService } from '../../cart.service';
 
 @Component({
   selector: 'app-collection',
@@ -30,7 +31,7 @@ export class CollectionComponent implements OnInit {
       }]
     };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -41,5 +42,29 @@ export class CollectionComponent implements OnInit {
       console.log('collection value: ', collections[collectionId]);
       this.collection = collections.filter(collection => collection.id == collectionId)[0];
     })
+  }
+
+  addToCart(item: any) {
+    console.log('my cart item here: ', item);
+    
+    let cartItem = {
+      id: item.id,
+      name: item.name,
+      color: 'Blue',
+      size: 'M',
+      price: item.price,
+      imageUrl: item.imageUrl,
+      quantity: 1
+    }
+
+
+    let alreadyInCart = this.cartService.getCartItemById(item.id);
+    if (alreadyInCart) {
+      this.cartService.updateQuantity(item.id, alreadyInCart.quantity + 1);
+    } else {
+      console.log('new cart item getting added: ', cartItem);
+      this.cartService.addToCart(cartItem);
+    }
+
   }
 }

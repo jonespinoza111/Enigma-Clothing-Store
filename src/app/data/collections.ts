@@ -56,35 +56,35 @@ export const collections = [
       description: 'Explore a wide range of stylish clothing for women.',
       products: [
         {
-          id: 1,
+          id: 7,
           name: "Women's Yellow Shirt",
           description: 'A stylish yellow shirt for women.',
           price: 29.99,
           imageUrl: 'assets/images/products/womens-product-1.png',
         },
         {
-          id: 2,
+          id: 8,
           name: 'Multicolored Jacket',
           description: 'A trendy multicolored jacket for women.',
           price: 79.99,
           imageUrl: 'assets/images/products/womens-product-2.png',
         },
         {
-          id: 3,
+          id: 9,
           name: 'Red Purse',
           description: 'A fashionable red purse for women.',
           price: 39.99,
           imageUrl: 'assets/images/products/womens-product-3.png',
         },
         {
-          id: 4,
+          id: 10,
           name: 'Red Skirt',
           description: 'A beautiful red skirt for women.',
           price: 49.99,
           imageUrl: 'assets/images/products/womens-product-4.png',
         },
         {
-          id: 5,
+          id: 11,
           name: "Women's Blue Hat",
           description: 'A chic blue hat for women.',
           price: 19.99,
@@ -98,56 +98,56 @@ export const collections = [
       description: 'Find adorable and comfortable clothing for kids.',
       products: [
         {
-            id: 1,
+            id: 12,
             name: "Zesty Citrus Burst Sneakers",
             description: "Stylish and comfortable sneakers in a refreshing blue shade with vibrant orange accents.",
             price: 39.99,
             imageUrl: 'assets/images/products/kids-product-1.png'
         },
         {
-            id: 2,
+            id: 13,
             name: "Galactic Adventure Navy Tee",
             description: "A trendy navy t-shirt with a captivating graphic print inspired by outer space.",
             price: 19.99,
             imageUrl: 'assets/images/products/kids-product-2.png'
         },
         {
-            id: 3,
+            id: 14,
             name: "Sunshine Orange Play Shorts",
             description: "Vibrant and comfortable shorts in a lively orange hue, perfect for active kids.",
             price: 24.99,
             imageUrl: 'assets/images/products/kids-product-3.png'
         },
         {
-            id: 4,
+            id: 15,
             name: "Azure Skies Everyday Pants",
             description: "Versatile and durable pants in a calming blue color, ideal for everyday wear.",
             price: 29.99,
             imageUrl: 'assets/images/products/kids-product-4.png'
         },
         {
-            id: 5,
+            id: 16,
             name: "Adorable Animal Print Onesie",
             description: "A cute and comfortable onesie with an adorable animal print.",
             price: 19.99,
             imageUrl: 'assets/images/products/kids-product-5.png'
         },
         {
-            id: 6,
+            id: 17,
             name: "Colorful Striped T-Shirt",
             description: "A vibrant and playful striped t-shirt for kids.",
             price: 14.99,
             imageUrl: 'assets/images/products/kids-product-6.png'
         },
         {
-            id: 7,
+            id: 18,
             name: "Cozy Fleece Jacket",
             description: "A warm and cozy fleece jacket to keep your child snug during colder days.",
             price: 29.99,
             imageUrl: 'assets/images/products/kids-product-7.png'
         },
         {
-            id: 8,
+            id: 19,
             name: "Playful Denim Overalls",
             description: "Fun and stylish denim overalls for active kids.",
             price: 24.99,

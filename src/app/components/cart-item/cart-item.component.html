@@ -1,43 +1,65 @@
 <div class="flex">
-    <div class="w-[8em] sm:w-full lg:w-[17em] h-[13em]">
-      <img class="w-full h-auto sm:h-full object-fit" src="assets/images/product-image-2.png" />
-      <!-- <div class="bg-white rounded shadow">
+  <div class="w-[8em] sm:w-full lg:w-[17em] h-[13em]">
+    <img
+      class="w-full h-auto sm:h-full object-fit"
+      src="{{ cartItem.imageUrl }}"
+    />
+    <!-- <div class="bg-white rounded shadow">
         <div class="h-48 w-48 bg-gray-200 rounded"></div>
       </div> -->
-    </div>
-    <div class="w-full h-[13em] lg:flex-grow lg:mt-0 flex-col">
-      <div class="bg-white py-0 px-4 h-full">
-        <div class="flex flex-col h-full justify-between">
-          <!-- Product Name and Price -->
-          <div class="flex justify-between">
-            <span class="font-bold text-md sm:text-lg">Enigma Sneakers</span>
-            <span class="font-bold text-md sm:text-lg">$90.00</span>
-          </div>
-          <!-- Variant, Size, and Color -->
-          <div class="flex flex-col gap-y-3">
-            <p class="font-light">Variant: Oversize</p>
-            <p class="font-light">Size: XL</p>
-            <p class="font-light">Color: Cream</p>
-          </div>
-          <!-- Icons (Heart and Trash Bin) -->
-          <div class="flex justify-between">
-            <div class="flex justify-end">
-              <div class="flex items-center space-x-3">
-                <img class="h-[30px] w-[30px] cursor-pointer hover:bg-gray-300 rounded-md" src="assets/images/favorite-icon.png" />
-                <img class="h-[27px] w-[27px] cursor-pointer hover:bg-gray-300 rounded-md" src="assets/images/delete-icon.png" />
+  </div>
+  <div class="w-full h-[13em] lg:flex-grow lg:mt-0 flex-col">
+    <div class="bg-white py-0 px-4 h-full">
+      <div class="flex flex-col h-full justify-between">
+        <!-- Product Name and Price -->
+        <div class="flex justify-between">
+          <span class="font-bold text-md sm:text-lg">{{ cartItem.name }}</span>
+          <span class="font-bold text-md sm:text-lg">${{ cartItem.price }}</span>
+        </div>
+        <!-- Variant, Size, and Color -->
+        <div class="flex flex-col gap-y-3">
+          <p class="font-light">Variant: Oversize</p>
+          <p class="font-light">Size: {{ cartItem.size }}</p>
+          <p class="font-light">Color: {{ cartItem.color }}</p>
+        </div>
+        <!-- Icons (Heart and Trash Bin) -->
+        <div class="flex justify-between">
+          <div class="flex justify-end">
+            <div class="flex items-center space-x-3">
+              <img
+                class="h-[30px] w-[30px] cursor-pointer hover:bg-gray-300 rounded-md"
+                src="assets/images/favorite-icon.png"
+              />
+              <div (click)="removeFromCart(cartItem)" class="">
+                <img
+                
+                  class="h-[27px] w-[27px] cursor-pointer hover:bg-gray-300 rounded-md"
+                  src="assets/images/delete-icon.png"
+                />
               </div>
             </div>
-            <!-- Quantity Changer -->
-            <div class="flex justify-end">
-              <div class="flex items-center gap-x-3">
-                <img class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300" src="assets/images/minus-icon-2.png" alt="minus sign icon" />
-                <span class="font-bold">1</span>
-                <img class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300" src="assets/images/plus-icon-2.png" alt="plus sign icon" />
-              </div>
+          </div>
+          <!-- Quantity Changer -->
+          <div class="flex justify-end">
+            <div class="flex items-center gap-x-3">
+              <img
+                (click)="subtractQuantity(cartItem)"
+                class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300"
+                src="assets/images/minus-icon-2.png"
+                alt="minus sign icon"
+              />
+              <span class="font-bold">{{ cartItem.quantity }}</span>
+              <img
+                (click)="addQuantity(cartItem)"
+                class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300"
+                src="assets/images/plus-icon-2.png"
+                alt="plus sign icon"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <hr class="my-4 border-gray-300">
+</div>
+<hr class="my-4 border-gray-300" />
