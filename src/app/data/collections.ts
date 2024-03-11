@@ -49,6 +49,13 @@ export const collections = [
             imageUrl: "assets/images/products/mens-product-6.png"
           }
       ],
+      filters: [
+        'Casual',
+        'Formal',
+        'Sports',
+        'Accessories',
+        'Outerwear',
+      ]
     },
     {
       id: 2,
@@ -90,7 +97,14 @@ export const collections = [
           price: 19.99,
           imageUrl: 'assets/images/products/womens-product-5.png',
         },
-    ]
+      ],
+      filters: [
+        'Dresses',
+        'Tops',
+        'Bottoms',
+        'Activewear',
+        'Swimwear',
+      ]
     },
     {
       id: 3,
@@ -153,6 +167,13 @@ export const collections = [
             price: 24.99,
             imageUrl: 'assets/images/products/kids-product-8.png'
         }
-    ],
+      ],
+      filters: [
+        'Boys',
+        'Girls',
+        'Newborns',
+        'Toddlers',
+        'School Uniforms',
+      ]
     },
   ];

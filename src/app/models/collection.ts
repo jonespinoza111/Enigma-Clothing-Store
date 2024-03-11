@@ -5,4 +5,5 @@ export interface Collection {
     title: string;
     description: string;
     products: Product[];
+    filters: string[];
 }

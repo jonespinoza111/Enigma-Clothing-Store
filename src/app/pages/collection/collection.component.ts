@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { Product } from '../../models/product.model';
 import { products } from '../../data/products';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { collections } from '../../data/collections';
 import { Collection } from '../../models/collection';
 import { CartService } from '../../cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-collection',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, CommonModule, RouterOutlet, RouterLink],
   templateUrl: './collection.component.html',
   styleUrl: './collection.component.css'
 })
@@ -28,7 +29,8 @@ export class CollectionComponent implements OnInit {
         description: 'Some running sneakers for the park',
         price: 13.99,
         imageUrl: '',
-      }]
+      }],
+      filters: ['Filter 1', 'Filter 2', 'Filter 3', 'Filter 4', 'Filter 5']
     };
 
   constructor(private route: ActivatedRoute, private cartService: CartService) {}

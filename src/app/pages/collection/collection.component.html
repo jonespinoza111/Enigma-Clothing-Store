@@ -5,21 +5,13 @@
     </div>
   
   <div class="flex justify-center flex-wrap my-4 mx-auto sm:mx-10 md:mx-0 gap-y-2">
-    <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
-      Filter 1
-    </div>
-    <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
-      Filter 2
-    </div>
-    <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
-      Filter 3
-    </div>
-    <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
-      Filter 4
-    </div>
-    <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
-      Filter 5
-    </div>
+    @for (filter of collection.filters; track filter) {
+      <div class="rounded-full border border-black text-black bg-white hover:bg-black hover:text-white px-8 py-2 mx-2 cursor-pointer">
+        {{ filter }}
+      </div>
+    } @empty {
+      No filters yet
+    }    
     <div class="rounded-full border border-black text-black bg-white hover:bg-gray-300 hover:text-white p-2 cursor-pointer">
         <img class="h-[25px] w-[25px]" src="assets/images/filters-icon.png" alt="Filter icon" />
     </div>
@@ -28,7 +20,7 @@
   <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-3 mx-8 mb-[8em]">
 
     @for (product of collection.products; track product.id) {
-        <div class="bg-white rounded-lg overflow-hidden cursor-pointer">
+        <div routerLink="/product" class="bg-white rounded-lg overflow-hidden cursor-pointer" >
             <div class="h-[20em] md:h-auto w-full flex justify-center bg-gray-300">
                 <img [src]="product.imageUrl" alt="Hero Image" class="object-fill h-full">
             </div>
