@@ -46,7 +46,8 @@ export class CollectionComponent implements OnInit {
     })
   }
 
-  addToCart(item: any) {
+  addToCart(event: MouseEvent, item: any) {
+    event.stopPropagation();
     console.log('my cart item here: ', item);
     
     let cartItem = {
