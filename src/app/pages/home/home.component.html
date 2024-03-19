@@ -18,8 +18,8 @@
         </div>
     </section>
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-8 mb-[6em]">
-        @for (category of categories; track category.id) {
-            <app-category-card [category]="category"></app-category-card>
+        @for (collection of collections; track collection.id) {
+            <app-category-card [collection]="collection"></app-category-card>
         } @empty {
             Empty list of categories
         }

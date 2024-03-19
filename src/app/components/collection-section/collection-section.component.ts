@@ -11,5 +11,5 @@ import { products } from '../../data/products';
   styleUrl: './collection-section.component.css',
 })
 export class CollectionSectionComponent {
-  products: Product[] = products;
+  products: Product[] = [];
 }

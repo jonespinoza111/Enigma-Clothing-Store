@@ -7,6 +7,7 @@ import { collections } from '../../data/collections';
 import { Collection } from '../../models/collection';
 import { CartService } from '../../cart.service';
 import { CommonModule } from '@angular/common';
+import { CollectionService } from '../../collection.service';
 
 @Component({
   selector: 'app-collection',
@@ -16,34 +17,42 @@ import { CommonModule } from '@angular/common';
   styleUrl: './collection.component.css'
 })
 export class CollectionComponent implements OnInit {
-  products: Product[] = products;
+  products: Product[] = [];
 
   collection: Collection = 
     {
       id: 0,
+      cardTitle: 'boo',
+      cardImage: '',
       title: 'hello',
       description: 'tonight is the night we go to the place over there',
       products: [{
-        id: 0,
+        _id: '0',
         name: 'Running Shoes',
         description: 'Some running sneakers for the park',
-        price: 13.99,
         imageUrl: '',
+        variations: [],
+        category: ''
       }],
       filters: ['Filter 1', 'Filter 2', 'Filter 3', 'Filter 4', 'Filter 5']
     };
 
-  constructor(private route: ActivatedRoute, private cartService: CartService) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService, private collectionService: CollectionService) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    
     this.route.params.subscribe(params => {
       let collectionId = params['id'];
-      console.log('param value: ', params, collectionId);
-      console.log('collection value: ', collections[collectionId]);
-      this.collection = collections.filter(collection => collection.id == collectionId)[0];
+      
+        this.collection = this.collectionService.getCollectionById(collectionId);
+        console.log('param value: ', params, collectionId);
+        console.log('collection value: ', this.collection);
     })
+
+
+
   }
 
   addToCart(event: MouseEvent, item: any) {
@@ -51,11 +60,11 @@ export class CollectionComponent implements OnInit {
     console.log('my cart item here: ', item);
     
     let cartItem = {
-      id: item.id,
+      id: item._id,
       name: item.name,
-      color: 'Blue',
-      size: 'M',
-      price: item.price,
+      color: item.variations[0].color,
+      size: item.variations[0].size,
+      price: item.variations[0].price,
       imageUrl: item.imageUrl,
       quantity: 1
     }

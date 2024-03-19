@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { collections } from '../../data/collections';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { ProductService } from '../../product.service';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, CommonModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -15,7 +18,38 @@ export class ProductDetailsComponent implements OnInit {
   truncatedDescription: string = '';
   truncated: boolean = true;
   outputDescription: string = '';
-  products: Product[] = collections[0].products.slice(0, 4);
+  products: Product[] = [];
+  productInfo: any;
+  currentVariation: any;
+  // products: Product[] = collections[0].products.slice(0, 4);
+
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      let productId = params['id'];
+      console.log()
+      
+        this.productInfo = this.productService.getProductById(productId)
+        .subscribe(
+          (response: Product) => {
+            this.productInfo = response;
+            this.currentVariation = response.variations[0];
+            console.log('here is the productInfo, ', this.productInfo);
+          },
+          (error: any) => {
+            console.error('Error fetching products:', error);
+          }
+        )
+    })
+    this.productService.getAllProducts().subscribe(
+      (response: Product[]) => {
+        this.products = response.slice(0, 4);;
+        console.log('here are the products, ', this.products);
+      },
+      (error: any) => {
+        console.error('Error fetching products:', error);
+      }
+    );;
+  }
 
   ngOnInit() {
     // Assuming you have assigned the description value from your data source

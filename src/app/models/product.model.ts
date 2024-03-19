@@ -1,7 +1,18 @@
+export interface Variation {
+    _id: string;
+    size: string;
+    color: string;
+    price: number;
+    stockQuantity: number;
+    available: boolean;
+    productId: string;
+  }
+  
 export interface Product {
-    id: number;
+    _id: string;
     name: string;
     description: string;
-    price: number;
+    variations: Variation[];
     imageUrl: string;
+    category: string;
 }

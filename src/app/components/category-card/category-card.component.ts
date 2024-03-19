@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Category } from '../../models/category.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Collection } from '../../models/collection';
 
 @Component({
   selector: 'app-category-card',
@@ -12,4 +13,5 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class CategoryCardComponent {
   @Input() category!: Category;
+  @Input() collection!: Collection;
 }
