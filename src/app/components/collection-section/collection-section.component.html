@@ -6,9 +6,11 @@
     
     <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       @for (product of products; track product._id) {
-        <app-product-card [product]="product"></app-product-card>
+        <app-product-card [routerLink]="['/product', product._id]" [product]="product"></app-product-card>
       } @empty {
-        Empty list of products
+        <div class="item flex items-center w-full">
+          <ngx-skeleton-loader class="flex flex-row gap-x-3" [theme]="{ width: '29em', height: '32em' }" animation="pulse" appearance="line" count="3" />
+        </div>
       }      
       <!-- Repeat the above product item code for the remaining 5 products -->
       

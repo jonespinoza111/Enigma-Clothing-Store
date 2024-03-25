@@ -28,7 +28,12 @@
             </div>
         </div>
     } @empty {
-        Empty list of products
+      <div class="item flex flex-row gap-4 w-auto h-auto px-[2em] mt-12">
+        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="3" />
+        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="3" />
+        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="3" />
+        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="3" />
+      </div>
       }      
   </div>
 </div>

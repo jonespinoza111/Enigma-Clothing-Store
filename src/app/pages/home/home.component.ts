@@ -5,11 +5,14 @@ import { CategoryCardComponent } from '../../components/category-card/category-c
 import { Category } from '../../models/category.model';
 import { Collection } from '../../models/collection';
 import { CollectionService } from '../../collection.service';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroImageComponent, CollectionSectionComponent, CategoryCardComponent],
+  imports: [HeroImageComponent, CollectionSectionComponent, CategoryCardComponent, CommonModule, RouterOutlet, RouterLink, NgxSkeletonLoaderModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

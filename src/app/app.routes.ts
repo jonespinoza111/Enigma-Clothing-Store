@@ -5,6 +5,8 @@ import { CollectionComponent } from './pages/collection/collection.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { FeaturedComponent } from './pages/featured/featured.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,4 +15,6 @@ export const routes: Routes = [
     { path: 'checkout', component: CheckoutComponent },
     { path: 'product/:id', component: ProductDetailsComponent },
     { path: 'featured', component: FeaturedComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
 ];
