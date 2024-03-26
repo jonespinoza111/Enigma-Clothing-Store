@@ -41,24 +41,24 @@
   </div>
 
   <div *ngIf="!collection" class="w-full min-h-svh">
-    <div class="w-[100%] flex items-center justify-center mt-[2em]">
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '700px', height: '36px' }" animation="pulse" appearance="line" count="1" />
+    <div class="w-[100%] flex items-center justify-center">
+      <ngx-skeleton-loader class="flex w-[90%] md:[500px] lg:w-[700px]" [theme]="{ height: '36px' }" animation="pulse" appearance="line" count="1" />
     </div>
 
     <div class="w-[100%] flex items-center justify-center my-5">
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '300px', height: '20px' }" animation="pulse" appearance="line" count="1" />
+      <ngx-skeleton-loader class="flex w-[60%] md:w-[300px]" [theme]="{ height: '20px' }" animation="pulse" appearance="line" count="1" />
     </div>
 
     <div class="w-[100%] flex items-center justify-center">
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '700px', height: '45px' }" animation="pulse" appearance="line" count="1" />
+      <ngx-skeleton-loader class="flex w-[90%] md:[500px] lg:w-[700px]" [theme]="{ height: '45px' }" animation="pulse" appearance="line" count="1" />
     </div>
 
     <!-- Display a loading message or placeholder -->
-    <div class="item flex flex-row gap-4 w-auto h-auto px-[2em] mt-12">
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="5" />
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="5" />
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="5" />
-      <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="5" />
+    <div class="item flex flex-row gap-4 w-full h-auto px-[2em] mt-12">
+      <ngx-skeleton-loader class="flex flex-col w-[90%] md:w-[22em]" [theme]="{ height: '20em' }" animation="pulse" appearance="line" count="4" />
+      <ngx-skeleton-loader class="hidden md:flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="4" />
+      <ngx-skeleton-loader class="hidden lg:flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="4" />
+      <ngx-skeleton-loader class="hidden xl:flex flex-col" [theme]="{ width: '22em', height: '20em' }" animation="pulse" appearance="line" count="4" />
     </div>
   </div>
 </div>

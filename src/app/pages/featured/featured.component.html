@@ -13,7 +13,7 @@
   <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-3 mx-8 mb-[8em]">
 
     @for (product of products; track product._id) {
-        <div routerLink="/product" class="bg-white rounded-lg overflow-hidden cursor-pointer" >
+        <div [routerLink]="['/product', product._id]" class="bg-white rounded-lg overflow-hidden cursor-pointer" >
             <div class="h-[20em] md:h-auto w-full flex justify-center bg-gray-300">
                 <img [src]="product.imageUrl" alt="Hero Image" class="object-fill h-full">
             </div>
@@ -24,7 +24,7 @@
             </div>
             <div>
               <!-- <button (click)="addToCart($event, product)" class="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-700">Add to cart</button> -->
-              <button class="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-700">Add to cart</button>
+              <!-- <button class="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-700">Add to cart</button> -->
             </div>
         </div>
     } @empty {

@@ -1,10 +1,13 @@
 <!-- Sign-up form -->
-<div class="flex flex-col items-center mt-8">
-    <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
-    <form class="flex flex-col gap-4">
-      <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="text" placeholder="Full Name">
-      <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="email" placeholder="Email">
-      <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="password" placeholder="Password">
-      <button class="bg-black text-white rounded-full px-8 py-2 hover:bg-gray-700">Sign Up</button>
-    </form>
+<div class="w-full h-[35em] flex justify-center pt-[5em]">
+  <div class="flex flex-col items-center mt-8">
+      <h2 class="text-2xl font-bold mb-4">Sign Up</h2>
+      <form class="flex flex-col gap-4">
+        <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="text" placeholder="Full Name">
+        <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="email" placeholder="Email">
+        <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="password" placeholder="Password">
+        <button class="bg-black text-white rounded-full px-8 py-2 hover:bg-gray-700">Sign Up</button>
+        <a [routerLink]="['/login']" class="text-center">Log In instead?</a>
+      </form>
   </div>
+</div>

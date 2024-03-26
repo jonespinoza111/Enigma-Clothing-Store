@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgxSkeletonLoaderModule],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

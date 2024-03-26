@@ -6,16 +6,7 @@
           <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="email" placeholder="Email">
           <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="password" placeholder="Password">
           <button class="bg-black text-white rounded-full px-8 py-2 hover:bg-gray-700">Sign In</button>
-          <a class="text-center">Sign Up Instead?</a>
+          <a [routerLink]="['/signup']" class="text-center">Sign Up Instead?</a>
         </form>
       </div>
-
-      <!-- <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '60%', height: '36px' }" animation="pulse" appearance="line" count="1" />
-      <ngx-skeleton-loader [theme]="{ width: '30%', height: '20px' }" animation="pulse" appearance="line" count="1" />
-      <div class="item flex flex-row gap-4 w-auto h-auto">
-        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '200px', height: '15px' }" animation="pulse" appearance="line" count="5" />
-        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '200px', height: '15px' }" animation="pulse" appearance="line" count="5" />
-        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '200px', height: '15px' }" animation="pulse" appearance="line" count="5" />
-        <ngx-skeleton-loader class="flex flex-col" [theme]="{ width: '200px', height: '15px' }" animation="pulse" appearance="line" count="5" />
-      </div> -->
   </div>
