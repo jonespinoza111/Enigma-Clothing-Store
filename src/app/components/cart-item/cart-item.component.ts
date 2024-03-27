@@ -24,11 +24,11 @@ export class CartItemComponent {
       this.removeFromCart(item);
     }
     const newQuantity = item.quantity - 1; 
-    this.cartService.updateQuantity(item.id, newQuantity);
+    this.cartService.updateQuantity(item, newQuantity);
   }
 
   addQuantity(item: any) {
     const newQuantity = item.quantity + 1;
-    this.cartService.updateQuantity(item.id, newQuantity);
+    this.cartService.updateQuantity(item, newQuantity);
   }
 }

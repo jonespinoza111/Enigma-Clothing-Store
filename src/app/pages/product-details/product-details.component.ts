@@ -6,6 +6,7 @@ import { ProductService } from '../../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../cart.service';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-product-details',
@@ -30,7 +31,7 @@ export class ProductDetailsComponent implements OnInit {
   availableSizes: any = [];
   // products: Product[] = collections[0].products.slice(0, 4);
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService) {
+  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService, private notificationService: NotificationService) {
     this.route.params.subscribe(params => {
       let productId = params['id'];
       console.log()
@@ -110,12 +111,14 @@ export class ProductDetailsComponent implements OnInit {
     }
 
 
-    let alreadyInCart = this.cartService.getCartItemById(item.id);
+    let alreadyInCart = this.cartService.getAlreadyInCart(cartItem.id, cartItem.color, cartItem.size);
     if (alreadyInCart) {
-      this.cartService.updateQuantity(item.id, alreadyInCart.quantity + 1);
+      this.cartService.updateQuantity(cartItem, alreadyInCart.quantity + 1);
+      this.triggerAddToCartNotification();
     } else {
       console.log('new cart item getting added: ', cartItem);
       this.cartService.addToCart(cartItem);
+      this.triggerAddToCartNotification(cartItem.name);
     }
 
   }
@@ -151,5 +154,15 @@ export class ProductDetailsComponent implements OnInit {
       console.log('available sizes in togglecolro: ', this.availableSizes);
       this.selectedSize = this.availableSizes[0];
       this.changeVariation(color, this.selectedSize);
+  }
+
+  triggerAddToCartNotification(productName?: string) {
+    let finalMessage = productName ? `${productName} Added to Cart` : 'Item Added to Cart';
+    this.notificationService.triggerNotification({ 
+      message: finalMessage, 
+      details: 'Success', 
+      options: { timeOut: 3000 },
+      type: "success"
+    });
   }
 }

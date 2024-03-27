@@ -14,12 +14,14 @@ import { CartService } from '../../cart.service';
 export class CartComponent {
   public cartItems: any[] = [];
   public cartTotal: number = 0;
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {
+  }
   ngOnInit() {
     // Component initialization logic
     this.cartItems = this.cartService.getCartItems();
     this.cartService.cartTotal$.subscribe((total: number) => {
       this.cartTotal = total;
+      console.log('these are all the cart items: ', this.cartItems);
     });;
   }
 }

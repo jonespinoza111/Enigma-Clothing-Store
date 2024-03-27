@@ -66,8 +66,9 @@ export class CartService {
     localStorage.removeItem('cartItems');
   }
 
-  updateQuantity(id: number, quantity: number): void {
-    const foundItem = this.cartItems.find((cartItem) => cartItem.id === id);
+  updateQuantity(productInfo: CartItem, quantity: number): void {
+    const foundItem = this.cartItems.filter((item) => item.id === productInfo.id).find((item) => item.color == productInfo.color && item.size == productInfo.size);
+    console.log('here is founditem in updateQuantity: ', foundItem);
     if (foundItem) {
       foundItem.quantity = quantity;
     }
@@ -76,8 +77,14 @@ export class CartService {
   }
 
   getCartItemById(itemId: number): any {
+    console.log('all cartItems in getId: ', this.cartItems);
     return this.cartItems.find((item) => item.id === itemId);
   }
+
+  getAlreadyInCart(itemId: number, color: string, size: string): any {
+    return this.cartItems.filter((item) => item.id === itemId).find((item) => item.color == color && item.size == size);
+  }
+
 
   isEmpty(): boolean {
     return this.cartItems.length === 0;

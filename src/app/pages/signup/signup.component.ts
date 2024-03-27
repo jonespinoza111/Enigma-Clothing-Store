@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,5 +10,14 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  
+  constructor(private notificationService: NotificationService) { }
+
+  triggerNotification() {
+    this.notificationService.triggerNotification({ 
+      message: 'Added to Cart', 
+      details: 'Success', 
+      options: { timeOut: 3000 },
+      type: "success"
+    });
+  }
 }

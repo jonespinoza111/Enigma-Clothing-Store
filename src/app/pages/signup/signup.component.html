@@ -6,7 +6,7 @@
         <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="text" placeholder="Full Name">
         <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="email" placeholder="Email">
         <input class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none" type="password" placeholder="Password">
-        <button class="bg-black text-white rounded-full px-8 py-2 hover:bg-gray-700">Sign Up</button>
+        <button type="button" (click)="triggerNotification()" class="bg-black text-white rounded-full px-8 py-2 hover:bg-gray-700">Sign Up</button>
         <a [routerLink]="['/login']" class="text-center">Log In instead?</a>
       </form>
   </div>
