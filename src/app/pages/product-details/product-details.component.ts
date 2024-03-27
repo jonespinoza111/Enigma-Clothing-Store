@@ -7,11 +7,12 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../cart.service';
 import { NotificationService } from '../../notification.service';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule],
+  imports: [ProductCardComponent, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -29,7 +30,7 @@ export class ProductDetailsComponent implements OnInit {
   selectedColor: any;
   availableColors: any = ['Green', 'Yellow'];
   availableSizes: any = [];
-  // products: Product[] = collections[0].products.slice(0, 4);
+  quantityValue: number = 1;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService, private notificationService: NotificationService) {
     this.route.params.subscribe(params => {
@@ -99,7 +100,7 @@ export class ProductDetailsComponent implements OnInit {
   addToCart(event: MouseEvent, item: any) {
     event.stopPropagation();
     console.log('my cart item here: ', item);
-    
+
     let cartItem = {
       id: item._id,
       name: item.name,
@@ -107,13 +108,13 @@ export class ProductDetailsComponent implements OnInit {
       size: this.currentVariation.size,
       price: this.currentVariation.price,
       imageUrl: item.imageUrl,
-      quantity: 1
+      quantity: this.quantityValue
     }
 
 
     let alreadyInCart = this.cartService.getAlreadyInCart(cartItem.id, cartItem.color, cartItem.size);
     if (alreadyInCart) {
-      this.cartService.updateQuantity(cartItem, alreadyInCart.quantity + 1);
+      this.cartService.updateQuantity(cartItem, alreadyInCart.quantity + cartItem.quantity);
       this.triggerAddToCartNotification();
     } else {
       console.log('new cart item getting added: ', cartItem);
@@ -164,5 +165,21 @@ export class ProductDetailsComponent implements OnInit {
       options: { timeOut: 3000 },
       type: "success"
     });
+  }
+
+  disableTyping(event: KeyboardEvent) {
+    event.preventDefault();
+  }
+
+  incrementQuantity() {
+    if (this.quantityValue < 20) {
+      this.quantityValue++;
+    }
+  }
+
+  decrementQuantity() {
+    if (this.quantityValue > 1) {
+      this.quantityValue--;
+    }
   }
 }

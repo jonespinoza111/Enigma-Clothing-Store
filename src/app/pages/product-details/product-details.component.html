@@ -92,6 +92,24 @@
                   }
                 </div>
               </div>
+              <div class="flex flex-col mt-6">
+                <div class="text-xl font-semibold">Quantity</div>
+                <div class="flex items-center gap-x-3 mt-4">
+                  <img
+                    (click)="decrementQuantity()"
+                    class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300"
+                    src="assets/images/minus-icon-2.png"
+                    alt="minus sign icon"
+                  />
+                  <input class="w-[100px] h-[26px] text-center custom-number-input font-semibold" type="number" min="1" max="20" [value]="quantityValue" disabled>
+                  <img
+                    (click)="incrementQuantity()"
+                    class="w-[26px] h-[26px] cursor-pointer hover:bg-gray-300"
+                    src="assets/images/plus-icon-2.png"
+                    alt="plus sign icon"
+                  />
+                </div>
+              </div>
               <div class="mt-8 flex">
                 <button class="bg-black rounded-full text-white px-4 py-2 mr-2 w-[50%] hover:bg-gray-700">Buy Now</button>
                 <button [disabled]="!selectedSize" (click)="addToCart($event, productInfo)" class="bg-white rounded-full border-2 border-gray-400 px-4 py-2 w-[50%] hover:bg-gray-100">Add to Cart</button>
