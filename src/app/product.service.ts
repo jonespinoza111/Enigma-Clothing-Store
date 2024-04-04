@@ -23,7 +23,7 @@ export class ProductService {
   getProductById(id: String): any {
     let response = this.httpClient.get<{
       success: boolean, data: Product[]
-    }>(`${this.apiUrl}${id}`);
+    }>(`${this.apiUrl}/${id}`);
 
     console.log('this final product response: ' , response.pipe(map(res => res.data)));
     return response.pipe(map(res => res.data))
