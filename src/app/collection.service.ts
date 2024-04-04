@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CollectionService {
-  private apiUrl = 'https://enigma-server-3rxw.onrender.com/collections';
+  private apiUrl = 'https://enigma-backend.fly.dev/collections';
   private collectionsSubject: BehaviorSubject<Collection[]> = new BehaviorSubject<Collection[]>([]);
   collections$ = this.collectionsSubject.asObservable();
 

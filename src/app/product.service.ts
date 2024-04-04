@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://enigma-server-3rxw.onrender.com/products';
+  private apiUrl = 'https://enigma-backend.fly.dev/products';
   httpClient = inject(HttpClient);
 
   constructor() {}
@@ -23,7 +23,7 @@ export class ProductService {
   getProductById(id: String): any {
     let response = this.httpClient.get<{
       success: boolean, data: Product[]
-    }>(`https://enigma-server-3rxw.onrender.com/products/${id}`);
+    }>(`${this.apiUrl}products/${id}`);
 
     console.log('this final product response: ' , response.pipe(map(res => res.data)));
     return response.pipe(map(res => res.data))
